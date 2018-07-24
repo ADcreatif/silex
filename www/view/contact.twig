@@ -1,0 +1,26 @@
+{% extends "layout.twig" %}
+
+{% block title %}Contact{% endblock %}
+
+{% block main %}
+    <h2>Laissez nous un message</h2>
+    <form class="generic-form">
+        <fieldset>
+            <legend>On va (peut être) vous répondre</legend>
+            <ul>
+                <li>
+                    <label>Nom complet</label>
+                    <input name="fullName">
+                </li>
+                <li>
+                    <label>Message</label>
+                    <textarea name="message"></textarea>
+                </li>
+                <li>
+                    <label></label>
+                    <button type="submit" class="button-primary button" name="send_message">Envoi du message</button>
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+{% endblock %}

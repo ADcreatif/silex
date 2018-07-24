@@ -10,9 +10,10 @@
 #### récupérer Silex
     php composer.phar require silex/silex "^2.0"
 
-#### lancer Silex
+#### lancer Silex 
+    // > index.php
    
-    require_once __DIR__.'/../vendor/autoload.php';
+    require_once __DIR__.'/vendor/autoload.php';
     
     $app = new Silex\Application();
     
@@ -21,3 +22,13 @@
     });
     
     $app->run();
+
+#### configurer le .htaccess
+    <IfModule mod_rewrite.c>
+        Options -MultiViews
+    
+        RewriteEngine On
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteRule ^ index.php [QSA,L]
+    </IfModule>

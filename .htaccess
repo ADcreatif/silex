@@ -2,7 +2,6 @@
     Options -MultiViews
 
     RewriteEngine On
-    #RewriteBase /live08/06.silex/
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [QSA,L]
