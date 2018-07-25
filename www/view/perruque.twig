@@ -1,0 +1,22 @@
+{% extends "layout.twig" %}
+
+{% block title %}Nos produits de qualitay{% endblock %}
+
+{% block main %}
+    <h2>Perruques</h2>
+    <p>Consultez nos super perruques</p>
+    <section class="flex">
+        {% for perruque in perruques %}
+            <article>
+                perruque
+            </article>
+        {% else %}
+            <p> Il n'y a pas de perruques</p>
+        {% endfor %}
+    </section>
+{% endblock %}
+
+
+{% block footer %}
+    une modification du pied de page
+{% endblock %}

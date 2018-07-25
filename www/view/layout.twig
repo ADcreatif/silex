@@ -20,11 +20,11 @@
         <h1 id="logo">La Perruque</h1>
         <p class="subtitle">c'est mon truc</p>
         <nav>
-            <a class="button-primary button" href="#" title="page d'accueil">Home</a>
+            <a class="button-primary button" href="{{ url('home') }}" title="page d'accueil">Home</a>
             <a class="button-primary button" href="#"
                title="tout ce que vous avez toujours voulu savoir sur vos faisaurs de poils">A propos</a>
-            <a class="button-primary button" href="#">Nos Perruques</a>
-            <a class="button-primary button" href="#">Contact</a>
+            <a class="button-primary button" href="{{ url('perruque') }}">Nos Perruques</a>
+            <a class="button-primary button" href="{{ url('contact') }}">Contact</a>
         </nav>
     </div>
 </header>
