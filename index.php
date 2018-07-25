@@ -38,6 +38,9 @@ $app->register(new Silex\Provider\AssetServiceProvider(), array(
 
 // Extention TEXT pour TWIG (permet l'utilisation de fonction comme truncate)
 $app['twig']->addExtension(new Twig_Extensions_Extension_Text());
+// Extention DEBUG pour TWIG (permet d'utiliser dump())
+$app['twig']->addExtension(new Twig_Extension_Debug());
+
 
 // interception des messages d'erreur
 $app->error(function (Exception $exception) use ($app) {

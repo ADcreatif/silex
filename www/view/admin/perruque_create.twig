@@ -1,7 +1,17 @@
 {% extends "admin/layout.twig" %}
 
 {% block main %}
-    <form class="generic-form" method="post">
+    {{ form_start(form, {'attr': {'class': 'generic-form'} }) }}
+    <fieldset>
+        <legend>Création d'une perruque</legend>
+        {{ form_widget(form) }}
+    </fieldset>
+    {{ form_end(form) }}
+
+
+
+
+    <!--form class="generic-form" method="post">
         <fieldset>
             <legend>Création d'une perruque</legend>
             <ul>
@@ -31,5 +41,5 @@
                 </li>
             </ul>
         </fieldset>
-    </form>
+    </form -->
 {% endblock %}

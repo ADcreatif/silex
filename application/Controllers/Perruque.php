@@ -9,6 +9,11 @@
 namespace Perruque\Controllers;
 
 use Silex\Application;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
 use Perruque\Models\Perruque as PerruqueModel;
 
@@ -24,22 +29,36 @@ class Perruque {
         return $app['twig']->render('admin/perruque_index.twig', ['perruque' => $perruqueModel]);
     }
 
-    function display_admin_create(Application $app, Request $request) {
+    function display_admin_create(Application $app, Request $request, Form $form) {
+        // équivalent $form->form
+        $form->handleRequest($request);
 
-        $form = '';
+        if ($form->isSubmitted()) {
 
-        if ($request->get('add_perruque') == "") {
-            $title = $request->get('title');
-            $description = $request->get('description');
-            $picture_url = $request->get('picture_url');
-            $price = floatval($request->get('price'));
-            $quantity = intval($request->get('quantity'));
-
-            $perruque_model = new PerruqueModel();
-            $perruque_model->create($title, $description, $picture_url, $price, $quantity);
         }
 
-        return $app['twig']->render('admin/perruque_create.twig');
+        $form = $app['form.factory']->createBuilder(FormType::class)
+            ->add('title', TextType::class)
+            ->add('description', TextareaType::class)
+            ->add('enregistrer', SubmitType::class)
+            ->getForm();
+
+        /*
+                if ($request->get('add_perruque') == "") {
+                    $title = $request->get('title');
+                    $description = $request->get('description');
+                    $picture_url = $request->get('picture_url');
+                    $price = floatval($request->get('price'));
+                    $quantity = intval($request->get('quantity'));
+
+                    $perruque_model = new PerruqueModel();
+                    $perruque_model->create($title, $description, $picture_url, $price, $quantity);
+                }
+        */
+
+        return $app['twig']->render('admin/perruque_create.twig', [
+            'form' => $form->createView()
+        ]);
     }
 
 }
