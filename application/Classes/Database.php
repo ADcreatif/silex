@@ -1,5 +1,9 @@
 <?php
 
+namespace Perruque\Classes;
+
+use \PDO;
+
 class Database {
     private $pdo;
 

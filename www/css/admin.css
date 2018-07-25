@@ -1,0 +1,16 @@
+#admin {
+    background-color: #f6fdcb;
+}
+
+#admin header,
+#admin footer {
+    background-color: #93a048;
+}
+
+#admin main {
+    /* background-color: white; */
+}
+
+#admin h1 {
+    color: white;
+}

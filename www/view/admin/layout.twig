@@ -2,30 +2,26 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>{% block title %}La Perruque{% endblock %}</title>
+    <title>{% block title %}Panneau de configuration{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset("normalize-3.0.3.min.css", "css") }}">
     <link rel="stylesheet" href="{{ asset("main.css", "css") }}">
+    <link rel="stylesheet" href="{{ asset("admin.css", "css") }}">
     <link rel="stylesheet" href="{{ asset("ui-button.css", "css") }}">
     <link rel="stylesheet" href="{{ asset("ui-form.css", "css") }}">
     <link rel="stylesheet" href="{{ asset("ui-table.css", "css") }}">
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
-<body>
+<body id="admin">
 <header>
     <div class="container">
-        <h1 id="logo">La Perruque</h1>
+        <h1 id="logo">La Perruque - Pannneau d'administration</h1>
         <p class="subtitle">c'est mon truc</p>
         <nav>
-            <a class="button-primary button" href="{{ url('home') }}" title="page d'accueil">Home</a>
-            <a class="button-primary button" href="#"
-               title="tout ce que vous avez toujours voulu savoir sur vos faisaurs de poils">A propos</a>
-            <a class="button-primary button" href="{{ url('perruque') }}">Nos Perruques</a>
-            <a class="button-primary button" href="{{ url('contact') }}">Contact</a>
-            <a class="button button-cancel" href="{{ url('admin') }}"><i class="fa fa-cog"></i> </a>
+            <a class="button-primary button" href="{{ url('admin_perruque') }}">perruque</a>
         </nav>
     </div>
 </header>

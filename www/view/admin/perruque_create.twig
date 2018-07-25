@@ -1,0 +1,35 @@
+{% extends "admin/layout.twig" %}
+
+{% block main %}
+    <form class="generic-form" method="post">
+        <fieldset>
+            <legend>Création d'une perruque</legend>
+            <ul>
+                <li>
+                    <label for="title">Nom</label>
+                    <input id="title" name="title">
+                </li>
+                <li>
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description"></textarea>
+                </li>
+                <li>
+                    <label for="picture_url">Image</label>
+                    <input id="picture_url" type="file" name="picture_url">
+                </li>
+                <li>
+                    <label for="price">Prix</label>
+                    <input id="price" name="price">
+                </li>
+                <li>
+                    <label for="quantity">Quantité</label>
+                    <input id="quantity" name="quantity">
+                </li>
+                <li>
+                    <label></label>
+                    <button type="submit" class="button-primary button" name="add_perruque">Enregistrer</button>
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+{% endblock %}

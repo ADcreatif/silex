@@ -1,23 +1,17 @@
-{% extends "layout.twig" %}
-
-{% block title %}Nos produits de qualitay{% endblock %}
+{% extends "admin/layout.twig" %}
 
 {% block main %}
-    <h2>Perruques</h2>
+    <h2>Perruques <a href="{{ url('admin_perruque_create') }}" title="ajouter une perruque"><i
+                    class="fa fa-plus-circle"></i> </a></h2>
     <p>Consultez nos super perruques</p>
     <section class="flex">
         {% for perruque in perruque.get_perruques() %}
             <article>
                 <h3>{{ perruque.title }}</h3>
-                <p>{{ perruque.description|truncate:20 }}</p>
+                <p>{{ perruque.description|truncate(20) }}</p>
             </article>
         {% else %}
             <p> Il n'y a pas de perruques</p>
         {% endfor %}
     </section>
-{% endblock %}
-
-
-{% block footer %}
-    une modification du pied de page
 {% endblock %}
