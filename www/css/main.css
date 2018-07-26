@@ -66,6 +66,72 @@ hr {
     margin: 1.5em 0;
 }
 
+.flex {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: wrap;
+}
+
+.flex.flex-column {
+    flex-flow: wrap column;
+}
+
+.thumb {
+    object-fit: cover;
+    width: 150px;
+    max-height: 120px;
+    object-position: top;
+}
+
+#switch-display {
+    text-align: right;
+    padding: 2rem 0
+}
+
+#switch-display i {
+    font-size: 2rem;
+    display: inline-block;
+}
+
+#switch-display a:hover {
+    border-color: #ccc;
+}
+
+#switch-display a {
+    transition: all .5s;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    font-size: 2rem;
+    margin-left: 1rem;
+    padding: 2px 10px;
+}
+
+#perruque-list .description {
+    max-width: 10em;
+}
+
+#perruque-list .flex {
+    transition: all .5s;
+    flex-flow: wrap column;
+    margin-bottom: 2rem;
+    width: 150px;
+}
+
+#perruque-list.list {
+    flex-flow: wrap column;
+}
+
+#perruque-list.list > .flex {
+    width: 100%;
+    flex-flow: wrap;
+}
+
+#perruque-list h3 {
+    margin-bottom: 0;
+}
+
+
+
 /*
  * Classes génériques
  */

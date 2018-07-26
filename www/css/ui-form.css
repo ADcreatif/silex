@@ -6,52 +6,58 @@
     margin-left: 180px; /* pour aligner avec le label */
 }
 
+.generic-form input[type="number"],
+.generic-form input[type="email"],
 .generic-form input[type="password"],
 .generic-form input[type="text"],
 .generic-form select,
 .generic-form textarea {
-    /* structure */
-    padding: 2px;
-
-    /* presentation */
-    border: 1px solid grey;
+    padding: 5px 12px;
+    border: 1px solid lightgray;
     transition: background-color 0.33s;
 }
 
+.generic-form input[type="number"],
+.generic-form input[type="email"],
 .generic-form input[type="password"],
 .generic-form input[type="text"],
 .generic-form textarea {
     width: 20em;
 }
 
+.generic-form input[type="email"]:focus,
+.generic-form input[type="number"]:focus,
 .generic-form input[type="password"]:focus,
 .generic-form input[type="text"]:focus,
 .generic-form select:focus,
 .generic-form textarea:focus {
     background-color: #D0FFFF;
+    outline: none;
+    border: 1px solid lightgray;
+    padding: 5px 12px;
 }
 
-.generic-form > ul:last-child {
+.generic-form > div:last-child {
     margin-top: 2em;
 }
 
-.generic-form ul li {
+.generic-form div > div {
     margin: 1em 0;
 }
 
-.generic-form ul li label {
+.generic-form label {
     display: inline-block;
 }
 
-.generic-form ul li label.textarea {
+.generic-form label.textarea {
     vertical-align: top;
 }
 
-.generic-form ul li label:not(.no-width) {
+.generic-form label:not(.no-width) {
     width: 175px;
 }
 
-.generic-form ul li label.full-width {
+.generic-form label.full-width {
     width: 100%;
 }
 

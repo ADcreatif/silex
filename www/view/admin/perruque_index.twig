@@ -1,17 +1,40 @@
 {% extends "admin/layout.twig" %}
 
+
 {% block main %}
-    <h2>Perruques <a href="{{ url('admin_perruque_create') }}" title="ajouter une perruque"><i
-                    class="fa fa-plus-circle"></i> </a></h2>
+    <h2>Perruques <a href="{{ url('admin_perruque_create') }}" title="ajouter une perruque">
+            <i class="fa fa-plus-circle"></i>
+        </a>
+    </h2>
     <p>Consultez nos super perruques</p>
-    <section class="flex">
+
+    <div id="switch-display">
+        <a href="#" title="afficher en liste" data-target="perruque-list"><i class="fa fa-bars"></i> </a>
+        <a href="#" title="affiche en grille" data-target="perruque-list"><i class="fa fa-th"></i> </a>
+    </div>
+    <section id="perruque-list" class="flex">
         {% for perruque in perruque.get_perruques() %}
-            <article>
+            <article class="flex">
+                {% set image_name = perruque.image_name ? : 'default_wig.jpg' %}
+                <img class="thumb" src="{{ asset('perruques/'~image_name ,'img') }}" alt="{{ perruque.title }}">
                 <h3>{{ perruque.title }}</h3>
-                <p>{{ perruque.description|truncate(20) }}</p>
+                <p class="description">{{ perruque.description|truncate(50) }}</p>
+                <nav>
+                    <a href="{{ url('admin_perruque_update', {'id' : perruque.id}) }}"><i class="fa fa-edit"></i></a>
+                    <a href="{{ url('admin_perruque_delete', {'id' : perruque.id}) }}"><i class="fa fa-trash"></i></a>
+                </nav>
             </article>
         {% else %}
             <p> Il n'y a pas de perruques</p>
         {% endfor %}
     </section>
+
+    <script>
+        $(function () {
+            $('#switch-display').children('a').click(function () {
+                let item_to_switch = $('#' + $(this).data('target'));
+                item_to_switch.toggleClass('list');
+            })
+        })
+    </script>
 {% endblock %}
